@@ -126,27 +126,6 @@
 <script>
     // Mobile menu functionality
     document.addEventListener('DOMContentLoaded', function () {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-        if (mobileMenuButton && mobileMenu && closeMobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-            });
-
-            closeMobileMenu.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    mobileMenu.classList.remove('active');
-                }
-            });
-        }
-
         // Front-end only interaction handlers
         window.handleLike = function (button) {
             const likeCount = button.querySelector('span');
