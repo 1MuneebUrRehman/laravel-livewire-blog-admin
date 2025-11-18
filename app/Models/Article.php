@@ -69,11 +69,6 @@ class Article extends Model
             ->where('published_at', '<=', now());
     }
 
-    public function scopeFeatured($query)
-    {
-        return $query->where('is_featured', true);
-    }
-
     public function scopePopular($query, $limit = 10)
     {
         return $query->withCount('likes')

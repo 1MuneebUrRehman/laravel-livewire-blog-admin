@@ -20,7 +20,6 @@ return new class extends Migration
             $table->text('excerpt');
             $table->longText('content');
             $table->string('featured_image')->nullable();
-            $table->boolean('is_featured')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->integer('reading_time')->default(5); // in minutes
