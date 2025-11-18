@@ -26,4 +26,14 @@ class Like extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function getTopLikedArticles($limit = 10)
+    {
+        return self::selectRaw('article_id, COUNT(*) as like_count')
+            ->groupBy('article_id')
+            ->orderBy('like_count', 'desc')
+            ->with('article')
+            ->limit($limit)
+            ->get();
+    }
 }

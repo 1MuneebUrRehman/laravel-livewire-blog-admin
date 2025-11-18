@@ -69,6 +69,21 @@ class Article extends Model
             ->where('published_at', '<=', now());
     }
 
+    public function scopePopular($query, $limit = 10)
+    {
+        return $query->withCount('likes')
+            ->orderBy('likes_count', 'desc')
+            ->orderBy('views', 'desc')
+            ->limit($limit);
+    }
+
+    public function scopeMostLiked($query, $limit = 10)
+    {
+        return $query->withCount('likes')
+            ->orderBy('likes_count', 'desc')
+            ->limit($limit);
+    }
+
     protected static function boot(): void
     {
         parent::boot();

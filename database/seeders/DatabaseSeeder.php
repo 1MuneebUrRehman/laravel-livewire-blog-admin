@@ -20,9 +20,11 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             CategorySeeder::class,
             TagSeeder::class,
+            SettingSeeder::class,
             AdminUserSeeder::class,
             ArticleSeeder::class,
             CommentSeeder::class,
+            LikeSeeder::class
         ]);
     }
 }
