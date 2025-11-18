@@ -27,6 +27,7 @@ class Article extends Model
         'status',
         'reading_time',
         'views',
+        'is_featured'
     ];
 
     protected $casts = [
@@ -56,6 +57,16 @@ class Article extends Model
     public function likes(): HasMany
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function getFormattedViewsAttribute(): string
+    {
+        return number_format($this->views) . ' views';
+    }
+
+    public function getFormattedReadingTimeAttribute(): string
+    {
+        return $this->reading_time . ' min read';
     }
 
     public function isPublished(): bool
