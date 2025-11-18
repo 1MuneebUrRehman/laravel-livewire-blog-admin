@@ -63,6 +63,12 @@ class Article extends Model
         return $this->status === 'published' && $this->published_at <= now();
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('status', 'published')
+            ->where('published_at', '<=', now());
+    }
+
     protected static function boot(): void
     {
         parent::boot();
