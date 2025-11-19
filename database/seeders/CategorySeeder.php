@@ -46,6 +46,24 @@ class CategorySeeder extends Seeder
                 'description' => 'Business strategies and entrepreneurship',
                 'icon'        => 'fas fa-briefcase'
             ],
+            [
+                'name'        => 'Data Science',
+                'slug'        => 'data-science',
+                'description' => 'Analytics, machine learning, data visualization, and BI tools',
+                'icon'        => 'fas fa-database'
+            ],
+            [
+                'name'        => 'Productivity',
+                'slug'        => 'productivity',
+                'description' => 'Time management, workflow optimization, and efficiency tools',
+                'icon'        => 'fas fa-tasks'
+            ],
+            [
+                'name'        => 'Career',
+                'slug'        => 'career',
+                'description' => 'Professional development, job search, and skill building',
+                'icon'        => 'fas fa-user-graduate'
+            ],
         ];
 
         foreach ($categories as $category) {

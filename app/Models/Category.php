@@ -35,4 +35,10 @@ class Category extends Model
             }
         });
     }
+
+    // Add this method to get the category icon with a default
+    public function getIconAttribute($value): string
+    {
+        return $value ?: 'fas fa-folder';
+    }
 }
