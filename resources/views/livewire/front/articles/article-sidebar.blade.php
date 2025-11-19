@@ -10,13 +10,25 @@
                 <li>
                     <button
                             wire:click="$dispatch('category-selected', { category: '{{ $category->slug }}' })"
-                            class="flex justify-between items-center w-full text-left text-gray-700 hover:text-indigo-600 transition"
+                            class="flex justify-between items-center w-full text-left text-gray-700 hover:text-indigo-600 transition group"
                     >
                         <span class="flex items-center">
-                            <i class="fas fa-folder text-indigo-500 mr-2"></i>
+                            @if($category->slug === 'technology')
+                                <i class="fas fa-laptop-code text-indigo-500 mr-2"></i>
+                            @elseif($category->slug === 'marketing')
+                                <i class="fas fa-chart-line text-blue-500 mr-2"></i>
+                            @elseif($category->slug === 'finance')
+                                <i class="fas fa-chart-pie text-green-500 mr-2"></i>
+                            @elseif($category->slug === 'leadership')
+                                <i class="fas fa-users text-yellow-500 mr-2"></i>
+                            @elseif($category->slug === 'innovation')
+                                <i class="fas fa-lightbulb text-red-500 mr-2"></i>
+                            @else
+                                <i class="fas fa-folder text-indigo-500 mr-2"></i>
+                            @endif
                             {{ $category->name }}
                         </span>
-                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs">
+                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs group-hover:bg-indigo-100 group-hover:text-indigo-600 transition">
                             {{ $category->articles_count }}
                         </span>
                     </button>
@@ -60,9 +72,12 @@
         </div>
         <div class="tag-cloud flex flex-wrap gap-2">
             @foreach($popularTags as $tag)
-                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm cursor-pointer">
+                <button
+                        wire:click="$dispatch('tag-selected', { tag: '{{ $tag->slug }}' })"
+                        class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm cursor-pointer hover:bg-indigo-100 hover:text-indigo-600 transition"
+                >
                     {{ $tag->name }}
-                </span>
+                </button>
             @endforeach
         </div>
     </div>
