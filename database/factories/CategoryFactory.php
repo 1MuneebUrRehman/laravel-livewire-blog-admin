@@ -19,6 +19,14 @@ class CategoryFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'description' => $this->faker->paragraph(),
+            'icon' => $this->faker->randomElement([
+                'fas fa-laptop-code',
+                'fas fa-chart-line',
+                'fas fa-chart-pie',
+                'fas fa-users',
+                'fas fa-lightbulb',
+                'fas fa-briefcase'
+            ]), // Add this line
         ];
     }
 }

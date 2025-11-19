@@ -20,7 +20,7 @@ class ArticleFactory extends Factory
 
         return [
             'user_id' => User::factory(),
-            'category_id' => Category::factory(),
+            'category_id' => Category::inRandomOrder()->first()->id ?? Category::factory(),
             'title' => $title,
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->paragraph(),

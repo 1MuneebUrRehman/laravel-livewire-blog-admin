@@ -17,11 +17,16 @@ class ArticleSeeder extends Seeder
 
         $tags = Tag::all();
 
-        Article::factory(50)->create()->each(function ($article) use ($users, $tags) {
-            // Assign random tags (2-5 per article)
-            $article->tags()->attach(
-                $tags->random(rand(2, 5))->pluck('id')->toArray()
-            );
-        });
+        // Create articles with existing users
+        Article::factory(50)
+            ->create([
+                'user_id' => fn() => $users->random()->id,
+            ])
+            ->each(function ($article) use ($tags) {
+                // Assign random tags (2-5 per article)
+                $article->tags()->attach(
+                    $tags->random(rand(2, 5))->pluck('id')->toArray()
+                );
+            });
     }
 }

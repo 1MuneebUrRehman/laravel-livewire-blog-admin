@@ -13,42 +13,38 @@ class CategorySeeder extends Seeder
             [
                 'name'        => 'Technology',
                 'slug'        => 'technology',
-                'description' => 'Articles about technology and innovation'
+                'description' => 'Articles about technology and innovation',
+                'icon'        => 'fas fa-laptop-code'
             ],
             [
-                'name'        => 'Programming',
-                'slug'        => 'programming',
-                'description' => 'Programming tutorials and best practices'
+                'name'        => 'Marketing',
+                'slug'        => 'marketing',
+                'description' => 'Marketing strategies and trends',
+                'icon'        => 'fas fa-chart-line'
             ],
             [
-                'name'        => 'Web Development',
-                'slug'        => 'web-development',
-                'description' => 'Frontend and backend web development'
+                'name'        => 'Finance',
+                'slug'        => 'finance',
+                'description' => 'Financial insights and analysis',
+                'icon'        => 'fas fa-chart-pie'
             ],
             [
-                'name'        => 'Mobile Development',
-                'slug'        => 'mobile-development',
-                'description' => 'iOS and Android app development'
+                'name'        => 'Leadership',
+                'slug'        => 'leadership',
+                'description' => 'Leadership development and team management',
+                'icon'        => 'fas fa-users'
             ],
             [
-                'name'        => 'DevOps',
-                'slug'        => 'devops',
-                'description' => 'DevOps practices and tools'
-            ],
-            [
-                'name'        => 'Data Science',
-                'slug'        => 'data-science',
-                'description' => 'Data analysis and machine learning'
-            ],
-            [
-                'name'        => 'Design',
-                'slug'        => 'design',
-                'description' => 'UI/UX design and principles'
+                'name'        => 'Innovation',
+                'slug'        => 'innovation',
+                'description' => 'Innovative ideas and creative thinking',
+                'icon'        => 'fas fa-lightbulb'
             ],
             [
                 'name'        => 'Business',
                 'slug'        => 'business',
-                'description' => 'Business and entrepreneurship'
+                'description' => 'Business strategies and entrepreneurship',
+                'icon'        => 'fas fa-briefcase'
             ],
         ];
 
