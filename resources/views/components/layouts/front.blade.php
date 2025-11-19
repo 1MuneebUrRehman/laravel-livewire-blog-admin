@@ -114,6 +114,42 @@
         .footer-gradient {
             background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
         }
+
+        .page-header-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #7E22CE 100%);
+        }
+
+        .active-filter {
+            background-color: #4F46E5;
+            color: white;
+        }
+
+        .article-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .tag-cloud span {
+            transition: all 0.3s ease;
+        }
+
+        .tag-cloud span:hover {
+            transform: translateY(-2px);
+            background-color: #4F46E5;
+            color: white;
+        }
+
+        .sidebar-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
