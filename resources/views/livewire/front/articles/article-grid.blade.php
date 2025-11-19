@@ -19,7 +19,7 @@
     <!-- Pagination -->
     @if($articles->hasPages())
         <div class="mt-12">
-            {{ $articles->links() }}
+            {{ $articles->links('vendor.pagination.tailwind') }}
         </div>
     @endif
 </div>

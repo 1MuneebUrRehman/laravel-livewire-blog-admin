@@ -8,16 +8,6 @@
                     <p class="text-lg opacity-90 max-w-2xl">Browse our complete collection of business insights and
                         expert perspectives</p>
                 </div>
-                <div class="mt-6 md:mt-0">
-                    <div class="flex items-center space-x-2 text-sm">
-                        <span class="opacity-80" wire:loading.remove wire:target="search,category,sort,view">
-                            Showing results...
-                        </span>
-                        <span wire:loading wire:target="search,category,sort,view" class="opacity-80">
-                            Updating results...
-                        </span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -41,14 +31,3 @@
         </div>
     </div>
 </div>
-
-@script
-<script>
-    // Listen for category selection from the sidebar
-    Livewire.on('category-selected', (data) => {
-        // Find the ArticleFilters component and update its category
-        @this.
-        $wire.$parent.$wire.$set('category', data.category);
-    });
-</script>
-@endscript
