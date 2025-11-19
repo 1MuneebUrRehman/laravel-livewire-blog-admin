@@ -7,12 +7,10 @@ use Livewire\Component;
 class ArticleCard extends Component
 {
     public $article;
-    public $view = 'grid';
 
-    public function mount($article, $view = 'grid')
+    public function mount($article)
     {
         $this->article = $article;
-        $this->view    = $view;
     }
 
     public function render()
