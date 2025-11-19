@@ -150,6 +150,90 @@
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
+        .page-header-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #7E22CE 100%);
+        }
+
+        .article-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .tag-cloud span {
+            transition: all 0.3s ease;
+        }
+
+        .tag-cloud span:hover {
+            transform: translateY(-2px);
+            background-color: #4F46E5;
+            color: white;
+        }
+
+        .article-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .comment-card {
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .comment-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1024px) {
+            .sticky-sidebar {
+                position: sticky;
+                top: 100px;
+            }
+        }
+
+        /* Code Block Styling */
+        .prose pre {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 1.5rem 0;
+        }
+
+        .prose pre .keyword {
+            color: #f472b6;
+        }
+
+        .prose pre .function {
+            color: #60a5fa;
+        }
+
+        .prose pre .string {
+            color: #34d399;
+        }
+
+        .prose pre .comment {
+            color: #9ca3af;
+        }
+
+        /* Quote Styling */
+        .prose blockquote {
+            border-left: 4px solid #4F46E5;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #4b5563;
+        }
     </style>
 </head>
 <body class="bg-gray-50">

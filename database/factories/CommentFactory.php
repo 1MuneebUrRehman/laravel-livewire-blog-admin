@@ -7,9 +7,6 @@ use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<Comment>
- */
 class CommentFactory extends Factory
 {
     public function definition(): array
@@ -17,6 +14,7 @@ class CommentFactory extends Factory
         return [
             'article_id' => Article::factory(),
             'user_id' => User::factory(),
+            'parent_id' => null, // Default to top-level comment
             'content' => $this->faker->paragraph(),
             'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
         ];
@@ -33,6 +31,13 @@ class CommentFactory extends Factory
     {
         return $this->state([
             'status' => 'pending',
+        ]);
+    }
+
+    public function reply(): static
+    {
+        return $this->state([
+            'parent_id' => Comment::factory(),
         ]);
     }
 }

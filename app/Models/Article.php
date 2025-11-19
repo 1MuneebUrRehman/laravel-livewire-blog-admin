@@ -114,4 +114,29 @@ class Article extends Model
             }
         });
     }
+
+    public function isLikedBy(?int $userId): bool
+    {
+        if (!$userId) {
+            return false;
+        }
+
+        return $this->likes()->where('user_id', $userId)->exists();
+    }
+
+    public function getLikesCountAttribute(): int
+    {
+        return $this->likes()->count();
+    }
+
+    // Helper methods
+    public function getExcerptAttribute($value)
+    {
+        return $value ?: Str::limit(strip_tags($this->content), 150);
+    }
+
+    public function getReadingTimeAttribute($value)
+    {
+        return $value ?: max(1, round(str_word_count(strip_tags($this->content)) / 200));
+    }
 }
