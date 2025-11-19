@@ -25,7 +25,7 @@ class ArticleFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => $this->faker->paragraph(),
             'content' => $content,
-            'featured_image' => $this->faker->imageUrl(800, 400, 'nature'),
+            'featured_image' => $this->getFeaturedImage(),
             'published_at' => $this->faker->optional(0.7)->dateTimeBetween('-1 year', '+1 month'),
             'status' => $this->faker->randomElement(['draft', 'published', 'archived']),
             'reading_time' => max(1, round(str_word_count($content) / 200)),
@@ -61,5 +61,16 @@ class ArticleFactory extends Factory
         return $this->state([
             'user_id' => $userId,
         ]);
+    }
+
+    private function getFeaturedImage(): string
+    {
+        $categories = ['nature', 'technology', 'business', 'people', 'city', 'food'];
+        $category   = $this->faker->randomElement($categories);
+        $width      = 800;
+        $height     = 400;
+
+        // Using Lorem Picsum with specific categories
+        return "https://picsum.photos/seed/" . Str::random(10) . "/{$width}/{$height}?{$category}";
     }
 }
