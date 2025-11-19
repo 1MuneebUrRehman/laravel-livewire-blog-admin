@@ -117,8 +117,13 @@
     </style>
 </head>
 <body class="bg-gray-50">
+
+<livewire:front.home.navigation/>
+
 <!-- Main Content -->
 {{ $slot }}
+
+<livewire:front.home.footer/>
 
 <!-- Scripts -->
 @livewireScripts
