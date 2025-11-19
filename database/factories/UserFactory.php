@@ -24,12 +24,18 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->name();
         return [
-            'name' => $this->faker->name(),
+            'name'   => $name,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
-            'avatar' => $this->faker->imageUrl(100, 100, 'people'),
+            'avatar' => 'https://api.dicebear.com/7.x/avataaars/svg?' . http_build_query([
+                    'seed'            => $name,
+                    'size'            => 100,
+                    'backgroundColor' => 'b6e3f4',
+                    'radius'          => 50
+                ]),
             'status' => $this->faker->randomElement(['active', 'inactive']),
             'remember_token' => Str::random(10),
         ];
