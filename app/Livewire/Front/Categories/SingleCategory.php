@@ -19,6 +19,7 @@ class SingleCategory extends Component
     public $popularTags;
     public $recentArticles;
     public $viewMode = 'grid';
+    public $search = '';
 
     public function mount($slug)
     {
@@ -62,7 +63,7 @@ class SingleCategory extends Component
         $this->recentArticles = Article::with(['user', 'category'])
             ->where('category_id', $this->category->id)
             ->published()
-            ->latest('published_at') // Ensure we're ordering by published_at
+            ->latest('published_at')
             ->take(3)
             ->get();
     }
@@ -73,13 +74,27 @@ class SingleCategory extends Component
         $this->resetPage();
     }
 
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $articlesQuery = Article::with(['user', 'category', 'tags'])
             ->where('category_id', $this->category->id)
             ->published();
 
-        $articles = $articlesQuery->paginate(5);
+        // Apply search filter
+        if ($this->search) {
+            $articlesQuery->where(function ($query) {
+                $query->where('title', 'like', '%' . $this->search . '%')
+                    ->orWhere('excerpt', 'like', '%' . $this->search . '%')
+                    ->orWhere('content', 'like', '%' . $this->search . '%');
+            });
+        }
+
+        $articles = $articlesQuery->latest('published_at')->paginate(6);
 
         return view('livewire.front.categories.single-category', compact('articles'));
     }
