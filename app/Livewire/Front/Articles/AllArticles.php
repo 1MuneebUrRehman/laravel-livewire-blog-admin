@@ -7,13 +7,17 @@ use App\Models\Category;
 use App\Models\Tag;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 #[Layout('components.layouts.front')]
 class AllArticles extends Component
 {
+    use WithPagination;
+
     public $categories;
     public $popularTags;
     public $recentArticles;
+    public $search = '';
 
     public function mount()
     {
@@ -33,6 +37,11 @@ class AllArticles extends Component
             ->latest()
             ->take(3)
             ->get();
+    }
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
     }
 
     public function render()

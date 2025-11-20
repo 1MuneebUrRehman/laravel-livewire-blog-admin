@@ -16,7 +16,6 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <!-- Main Content Area -->
             <div class="lg:col-span-3">
-                <livewire:front.articles.article-filters :categories="$categories"/>
                 <livewire:front.articles.article-grid/>
             </div>
 

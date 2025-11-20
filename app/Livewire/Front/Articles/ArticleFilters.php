@@ -21,6 +21,16 @@ class ArticleFilters extends Component
         }
     }
 
+    public function updatedSelectedCategories()
+    {
+        $this->dispatch('categoriesUpdated', categories: $this->selectedCategories);
+    }
+
+    public function updatedSelectedTags()
+    {
+        $this->dispatch('tagsUpdated', tags: $this->selectedTags);
+    }
+
     public function render()
     {
         return view('livewire.front.articles.article-filters');
