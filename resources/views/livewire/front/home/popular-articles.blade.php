@@ -12,7 +12,13 @@
                     <div class="flex items-center mt-1 text-xs text-gray-500">
                         <span>{{ number_format($article->views) }} views</span>
                         <span class="mx-2">•</span>
-                        <span>{{ $article->published_at->format('M d, Y') }}</span>
+                        <span>
+                            @if($article->published_at)
+                                {{ $article->published_at->format('M d, Y') }}
+                            @else
+                                <span class="text-amber-600">Draft</span>
+                            @endif
+                        </span>
                     </div>
                 </div>
             </a>

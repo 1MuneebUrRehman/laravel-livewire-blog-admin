@@ -36,7 +36,11 @@
                                 {{ $article->category->name }}
                             </span>
                             <span class="text-gray-500 text-sm">
-                                {{ $article->published_at->format('F j, Y') }}
+                                @if($article->published_at)
+                                    {{ $article->published_at->format('F j, Y') }}
+                                @else
+                                    <span class="text-amber-600">Draft</span>
+                                @endif
                             </span>
                             <span class="text-gray-500 text-sm flex items-center">
                                 <i class="fas fa-clock mr-1"></i> {{ $article->reading_time }} min read
