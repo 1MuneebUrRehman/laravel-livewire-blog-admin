@@ -32,12 +32,14 @@ class AllCategories extends Component
     public function getCategoryColor($index)
     {
         $colors = [
-            'text-indigo-600' => 'bg-indigo-50 text-indigo-700',
-            'text-blue-600'   => 'bg-blue-50 text-blue-700',
-            'text-green-600'  => 'bg-green-50 text-green-700',
-            'text-yellow-600' => 'bg-yellow-50 text-yellow-700',
-            'text-red-600'    => 'bg-red-50 text-red-700',
-            'text-purple-600' => 'bg-purple-50 text-purple-700',
+            'text-indigo-600' => 'bg-indigo-50 text-indigo-700 border border-indigo-100',
+            'text-blue-600'   => 'bg-blue-50 text-blue-700 border border-blue-100',
+            'text-green-600'  => 'bg-green-50 text-green-700 border border-green-100',
+            'text-yellow-600' => 'bg-yellow-50 text-yellow-700 border border-yellow-100',
+            'text-red-600'    => 'bg-red-50 text-red-700 border border-red-100',
+            'text-purple-600' => 'bg-purple-50 text-purple-700 border border-purple-100',
+            'text-pink-600'   => 'bg-pink-50 text-pink-700 border border-pink-100',
+            'text-cyan-600'   => 'bg-cyan-50 text-cyan-700 border border-cyan-100',
         ];
 
         $colorKeys = array_keys($colors);
@@ -71,7 +73,7 @@ class AllCategories extends Component
         $popularTags = Tag::withCount('articles')
             ->having('articles_count', '>', 0)
             ->orderBy('articles_count', 'desc')
-            ->take(12)
+            ->take(15)
             ->get();
 
         $stats = $this->getCategoryStats();
