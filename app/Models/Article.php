@@ -59,6 +59,11 @@ class Article extends Model
         return $this->hasMany(Like::class);
     }
 
+    public function getFormattedPublishedDate($format = 'M j, Y')
+    {
+        return $this->published_at ? $this->published_at->format($format) : 'Not published';
+    }
+
     public function getFormattedViewsAttribute(): string
     {
         return number_format($this->views) . ' views';

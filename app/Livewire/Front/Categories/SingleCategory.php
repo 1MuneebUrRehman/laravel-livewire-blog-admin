@@ -32,7 +32,6 @@ class SingleCategory extends Component
             ->firstOrFail();
 
         if ($this->category->articles_count === 0) {
-            // You could redirect to categorize page or just show an empty state
             abort(404, 'No published articles found in this category');
         }
 
@@ -63,7 +62,7 @@ class SingleCategory extends Component
         $this->recentArticles = Article::with(['user', 'category'])
             ->where('category_id', $this->category->id)
             ->published()
-            ->latest()
+            ->latest('published_at') // Ensure we're ordering by published_at
             ->take(3)
             ->get();
     }
