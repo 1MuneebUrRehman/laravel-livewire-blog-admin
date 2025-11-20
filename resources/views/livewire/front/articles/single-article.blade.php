@@ -161,7 +161,7 @@
                                     </div>
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-indigo-600 transition cursor-pointer article-title">
-                                            <a href="{{ route('article.show', $relatedArticle->slug) }}">
+                                            <a href="{{ route('articles.show', $relatedArticle->slug) }}">
                                                 {{ $relatedArticle->title }}
                                             </a>
                                         </h3>

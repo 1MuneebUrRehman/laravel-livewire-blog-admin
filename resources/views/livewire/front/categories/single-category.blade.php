@@ -104,7 +104,7 @@
                                             </span>
                                         </div>
                                         <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-indigo-600 transition cursor-pointer">
-                                            <a href="{{ route('article.show', $article->slug) }}">
+                                            <a href="{{ route('articles.show', $article->slug) }}">
                                                 {{ $article->title }}
                                             </a>
                                         </h3>
@@ -148,7 +148,7 @@
                                                 </span>
                                             </div>
                                             <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-indigo-600 transition cursor-pointer">
-                                                <a href="{{ route('article.show', $article->slug) }}">
+                                                <a href="{{ route('articles.show', $article->slug) }}">
                                                     {{ $article->title }}
                                                 </a>
                                             </h3>
@@ -224,7 +224,7 @@
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Recent {{ $category->name }} Posts</h3>
                         <div class="space-y-4">
                             @foreach($recentArticles as $recentArticle)
-                                <a href="{{ route('article.show', $recentArticle->slug) }}"
+                                <a href="{{ route('articles.show', $recentArticle->slug) }}"
                                    class="flex items-start space-x-3 group">
                                     <img src="{{ $recentArticle->featured_image_thumb ?? $recentArticle->featured_image ?? 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=60&h=60&fit=crop' }}"
                                          alt="{{ $recentArticle->title }}"
