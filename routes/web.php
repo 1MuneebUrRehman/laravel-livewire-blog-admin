@@ -1,9 +1,11 @@
 <?php
 
+use App\Livewire\Front\About;
 use App\Livewire\Front\Articles\AllArticles;
 use App\Livewire\Front\Articles\SingleArticle;
 use App\Livewire\Front\Categories\AllCategories;
 use App\Livewire\Front\Categories\SingleCategory;
+use App\Livewire\Front\Contact;
 use App\Livewire\Front\Home\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -13,5 +15,7 @@ Route::get('articles', AllArticles::class)->name('articles');
 Route::get('articles/{slug}', SingleArticle::class)->name('articles.show');
 Route::get('categories', AllCategories::class)->name('categories');
 Route::get('categories/{slug}', SingleCategory::class)->name('category.show');
+Route::get('about', About::class)->name('about');
+Route::get('contact', Contact::class)->name('contact');
 
 
