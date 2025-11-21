@@ -124,14 +124,14 @@
     document.addEventListener('livewire:init', () => {
         // Listen for category selection from sidebar
         Livewire.on('category-selected', (data) => {
-            @this.
-            toggleCategory(data.category);
+            // This will be handled by the parent component if needed
+            console.log('Category selected:', data.category);
         });
 
-        // Listen for tag selection from sidebar  
+        // Listen for tag selection from sidebar
         Livewire.on('tag-selected', (data) => {
-            @this.
-            toggleTag(data.tag);
+            // This will be handled by the parent component if needed
+            console.log('Tag selected:', data.tag);
         });
     });
 </script>

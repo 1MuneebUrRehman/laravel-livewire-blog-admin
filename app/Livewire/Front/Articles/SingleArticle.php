@@ -59,6 +59,26 @@ class SingleArticle extends Component
         $this->article->increment('views');
     }
 
+    // Add missing like functionality
+    public function toggleLike()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        $user = auth()->user();
+
+        if ($this->article->isLikedBy($user->id)) {
+            $this->article->likes()->where('user_id', $user->id)->delete();
+            $this->article->decrement('likes_count');
+        } else {
+            $this->article->likes()->create(['user_id' => $user->id]);
+            $this->article->increment('likes_count');
+        }
+
+        $this->article->refresh();
+    }
+
     public function render()
     {
         return view('livewire.front.articles.single-article');

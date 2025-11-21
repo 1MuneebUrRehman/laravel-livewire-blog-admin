@@ -332,6 +332,44 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
+        /* Add these styles to your main CSS file */
+        .page-header-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .article-card {
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .comment-card {
+            transition: all 0.2s ease;
+        }
+
+        .comment-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Ensure proper spacing for the reading progress bar */
+        #reading-progress {
+            z-index: 1000;
+        }
     </style>
 </head>
 <body class="bg-gray-50">

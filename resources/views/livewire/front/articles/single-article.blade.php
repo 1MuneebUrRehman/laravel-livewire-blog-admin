@@ -59,9 +59,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-4">
-                                <button wire:click="toggleLike"
-                                        class="flex items-center space-x-2 text-gray-600 hover:text-red-500 transition">
-                                    <i class="far fa-heart {{ $article->isLikedBy(auth()->id()) ? 'fas text-red-500' : '' }}"></i>
+                                <button
+                                        wire:click="toggleLike"
+                                        class="flex items-center space-x-2 transition {{ $article->isLikedBy(auth()->id()) ? 'text-red-500' : 'text-gray-600 hover:text-red-500' }}"
+                                >
+                                    <i class="{{ $article->isLikedBy(auth()->id()) ? 'fas text-red-500' : 'far' }} fa-heart"></i>
                                     <span>{{ $article->likes_count }}</span>
                                 </button>
                                 <button class="flex items-center space-x-2 text-gray-600 hover:text-blue-500 transition">
@@ -204,7 +206,6 @@
         </div>
     </div>
 </div>
-
 @push('scripts')
     <script>
         // Reading progress bar
@@ -214,26 +215,9 @@
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
 
-            document.getElementById('reading-progress').style.width = scrollPercent + '%';
-        });
-
-        // Like button functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const likeBtn = document.querySelector('[wire\\:click="toggleLike"]');
-            if (likeBtn) {
-                likeBtn.addEventListener('click', function () {
-                    const likeCount = this.querySelector('span');
-                    const icon = this.querySelector('i');
-                    const currentCount = parseInt(likeCount.textContent);
-
-                    if (this.classList.contains('text-red-500')) {
-                        this.classList.remove('text-red-500');
-                        likeCount.textContent = currentCount - 1;
-                    } else {
-                        this.classList.add('text-red-500');
-                        likeCount.textContent = currentCount + 1;
-                    }
-                });
+            const progressBar = document.getElementById('reading-progress');
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
             }
         });
     </script>

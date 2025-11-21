@@ -73,7 +73,7 @@
         @foreach($comments as $comment)
             <div class="comment-card bg-gray-50 rounded-xl p-6">
                 <div class="flex items-start space-x-4">
-                    <img src="{{ $comment->user->avatar_url }}" alt="User" class="w-10 h-10 rounded-full">
+                    <img src="{{ $comment->user->avatar }}" alt="User" class="w-10 h-10 rounded-full">
                     <div class="flex-1">
                         <div class="flex items-center justify-between mb-2">
                             <h4 class="font-semibold text-gray-900">{{ $comment->user->name }}</h4>
@@ -97,7 +97,7 @@
                                 @foreach($comment->replies as $reply)
                                     <div class="bg-white rounded-lg p-4">
                                         <div class="flex items-start space-x-3">
-                                            <img src="{{ $reply->user->avatar_url }}" alt="User"
+                                            <img src="{{ $reply->user->avatar }}" alt="User"
                                                  class="w-8 h-8 rounded-full">
                                             <div class="flex-1">
                                                 <div class="flex items-center justify-between mb-1">
