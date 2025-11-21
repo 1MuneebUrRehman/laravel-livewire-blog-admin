@@ -79,6 +79,12 @@ class SingleCategory extends Component
         $this->resetPage();
     }
 
+    // Add this method to format published date
+    public function getFormattedPublishedDate($article)
+    {
+        return $article->published_at?->format('M j, Y') ?? 'Draft';
+    }
+
     public function render()
     {
         $articlesQuery = Article::with(['user', 'category', 'tags'])

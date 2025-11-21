@@ -32,21 +32,41 @@ class AllCategories extends Component
     public function getCategoryColor($index)
     {
         $colors = [
-            'text-indigo-600' => 'bg-indigo-50 text-indigo-700 border border-indigo-100',
-            'text-blue-600'   => 'bg-blue-50 text-blue-700 border border-blue-100',
-            'text-green-600'  => 'bg-green-50 text-green-700 border border-green-100',
-            'text-yellow-600' => 'bg-yellow-50 text-yellow-700 border border-yellow-100',
-            'text-red-600'    => 'bg-red-50 text-red-700 border border-red-100',
-            'text-purple-600' => 'bg-purple-50 text-purple-700 border border-purple-100',
-            'text-pink-600'   => 'bg-pink-50 text-pink-700 border border-pink-100',
-            'text-cyan-600'   => 'bg-cyan-50 text-cyan-700 border border-cyan-100',
+            [
+                'icon'  => 'text-indigo-600',
+                'badge' => 'bg-indigo-50 text-indigo-700 border border-indigo-100'
+            ],
+            [
+                'icon'  => 'text-blue-600',
+                'badge' => 'bg-blue-50 text-blue-700 border border-blue-100'
+            ],
+            [
+                'icon'  => 'text-green-600',
+                'badge' => 'bg-green-50 text-green-700 border border-green-100'
+            ],
+            [
+                'icon'  => 'text-yellow-600',
+                'badge' => 'bg-yellow-50 text-yellow-700 border border-yellow-100'
+            ],
+            [
+                'icon'  => 'text-red-600',
+                'badge' => 'bg-red-50 text-red-700 border border-red-100'
+            ],
+            [
+                'icon'  => 'text-purple-600',
+                'badge' => 'bg-purple-50 text-purple-700 border border-purple-100'
+            ],
+            [
+                'icon'  => 'text-pink-600',
+                'badge' => 'bg-pink-50 text-pink-700 border border-pink-100'
+            ],
+            [
+                'icon'  => 'text-cyan-600',
+                'badge' => 'bg-cyan-50 text-cyan-700 border border-cyan-100'
+            ],
         ];
 
-        $colorKeys = array_keys($colors);
-        return [
-            'icon'  => $colorKeys[$index % count($colorKeys)],
-            'badge' => $colors[$colorKeys[$index % count($colorKeys)]]
-        ];
+        return $colors[$index % count($colors)];
     }
 
     public function render()
