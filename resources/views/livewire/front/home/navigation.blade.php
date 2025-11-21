@@ -11,13 +11,13 @@
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="{{ url('/') }}" class="nav-link text-gray-700 hover:text-indigo-600 transition font-medium">Home</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('articles') }}"
                    class="nav-link text-gray-700 hover:text-indigo-600 transition font-medium">Articles</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('categories') }}"
                    class="nav-link text-gray-700 hover:text-indigo-600 transition font-medium">Categories</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('about') }}"
                    class="nav-link text-gray-700 hover:text-indigo-600 transition font-medium">About</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('contact') }}"
                    class="nav-link text-gray-700 hover:text-indigo-600 transition font-medium">Contact</a>
             </div>
             <div class="flex items-center space-x-4">
@@ -60,13 +60,13 @@
         <div class="p-4">
             <div class="space-y-4">
                 <a href="{{ url('/') }}" class="block py-2 text-gray-700 hover:text-indigo-600 transition font-medium">Home</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('articles') }}"
                    class="block py-2 text-gray-700 hover:text-indigo-600 transition font-medium">Articles</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('categories') }}"
                    class="block py-2 text-gray-700 hover:text-indigo-600 transition font-medium">Categories</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('about') }}"
                    class="block py-2 text-gray-700 hover:text-indigo-600 transition font-medium">About</a>
-                <a href="{{ route('home') }}"
+                <a href="{{ route('contact') }}"
                    class="block py-2 text-gray-700 hover:text-indigo-600 transition font-medium">Contact</a>
                 @auth
                     <a href="{{ route('home') }}"
